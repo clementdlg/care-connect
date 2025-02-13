@@ -3,9 +3,7 @@ services:
     container_name: python-api
     build:
       context: .
-      dockerfile: py.dockerfile
-      args:
-          NO_CACHE: "1"
+      dockerfile: "docker/py.dockerfile"
     ports:
       - 8000:8000
     volumes:
@@ -19,13 +17,14 @@ services:
     container_name: "sql-db"
     build:
       context: .
-      dockerfile: "db.dockerfile"
-      args:
-          NO_CACHE: "1"
+      dockerfile: "docker/db.dockerfile"
     env_file: "db.env"
     networks:
       - pa-network
-    # volumes:
+    volumes:
+      - type: bind
+        source: "./sql"
+        target: "/sql"
     #   - type: volume
     #     source: my-db-data
     #     target: "/var/lib/mysql"
