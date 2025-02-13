@@ -25,13 +25,7 @@ services:
       - type: bind
         source: "./sql"
         target: "/sql"
-    #   - type: volume
-    #     source: my-db-data
-    #     target: "/var/lib/mysql"
 
 networks:
   pa-network:
     driver: bridge
-
-# volumes:
-#   my-db-data:
