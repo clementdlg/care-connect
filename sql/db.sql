@@ -1,4 +1,56 @@
 ------------------------------------------------------------------
+-- 2) TABLE: administrator_table
+------------------------------------------------------------------
+CREATE TABLE administrator_table(
+    administrator_id VARCHAR(50),
+    email VARCHAR(255) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
+    firstname VARCHAR(50) NOT NULL,
+    password CHAR(128) NOT NULL,
+    PRIMARY KEY(administrator_id),
+    UNIQUE(email)
+);
+
+------------------------------------------------------------------
+-- 8) TABLE: company_table
+------------------------------------------------------------------
+CREATE TABLE company_table(
+    company_id VARCHAR(43),
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50) NOT NULL,
+    registration_number VARCHAR(50) NOT NULL,
+    registration_date DATE NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    postal_code VARCHAR(20) NOT NULL,
+    country VARCHAR(50) NOT NULL,
+    inscription_date DATETIME NOT NULL,
+    revenue BIGINT NOT NULL,
+    size BIGINT NOT NULL,
+    password CHAR(128) NOT NULL,
+    administrator_id VARCHAR(50),
+    PRIMARY KEY(company_id),
+    UNIQUE(name),
+    UNIQUE(email),
+    UNIQUE(registration_number),
+    FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
+);
+
+------------------------------------------------------------------
+-- 3) TABLE: contracts_table 
+------------------------------------------------------------------
+CREATE TABLE contracts_table(
+    contract_id VARCHAR(46),
+    sign_at DATETIME NOT NULL,
+    file VARCHAR(255) NOT NULL,
+    company_id VARCHAR(43),
+    PRIMARY KEY(contract_id),
+    UNIQUE(file),
+	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
+);
+
+------------------------------------------------------------------
 -- 1) TABLE: subscription_plan_table
 ------------------------------------------------------------------
 CREATE TABLE subscription_plan_table(
@@ -13,29 +65,20 @@ CREATE TABLE subscription_plan_table(
 );
 
 ------------------------------------------------------------------
--- 2) TABLE: administrator_table
+-- 12) TABLE: collaborator_table
 ------------------------------------------------------------------
-CREATE TABLE administrator_table(
-    administrator_id VARCHAR(50),
+CREATE TABLE collaborator_table(
+    collaborator_id CHAR(49),
     email VARCHAR(255) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
+    birthday DATE NOT NULL,
+    role VARCHAR(50) NOT NULL,
     firstname VARCHAR(50) NOT NULL,
+    lastname VARCHAR(50) NOT NULL,
     password CHAR(128) NOT NULL,
-    PRIMARY KEY(administrator_id),
-    UNIQUE(email)
-);
-
-------------------------------------------------------------------
--- 3) TABLE: contracts_table 
-------------------------------------------------------------------
-CREATE TABLE contracts_table(
-    contract_id VARCHAR(46),
-    sign_at DATETIME NOT NULL,
-    file VARCHAR(255) NOT NULL,
-    company_id VARCHAR(43),
-    PRIMARY KEY(contract_id),
-    UNIQUE(file),
-	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
+    company_id VARCHAR(43) NOT NULL,
+    PRIMARY KEY(collaborator_id),
+    UNIQUE(email),
+    FOREIGN KEY(company_id) REFERENCES company_table(company_id)
 );
 
 ------------------------------------------------------------------
@@ -88,32 +131,6 @@ CREATE TABLE ngo_table(
     phone VARCHAR(50) NOT NULL,
     administrator_id VARCHAR(50),
     PRIMARY KEY(ngo_id),
-    FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
-);
-
-------------------------------------------------------------------
--- 8) TABLE: company_table
-------------------------------------------------------------------
-CREATE TABLE company_table(
-    company_id VARCHAR(43),
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    phone VARCHAR(50) NOT NULL,
-    registration_number VARCHAR(50) NOT NULL,
-    registration_date DATE NOT NULL,
-    street VARCHAR(255) NOT NULL,
-    city VARCHAR(255) NOT NULL,
-    postal_code VARCHAR(20) NOT NULL,
-    country VARCHAR(50) NOT NULL,
-    inscription_date DATETIME NOT NULL,
-    revenue BIGINT NOT NULL,
-    size BIGINT NOT NULL,
-    password CHAR(128) NOT NULL,
-    administrator_id VARCHAR(50),
-    PRIMARY KEY(company_id),
-    UNIQUE(name),
-    UNIQUE(email),
-    UNIQUE(registration_number),
     FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
 );
 
@@ -171,23 +188,6 @@ CREATE TABLE subject_table(
 );
 
 ------------------------------------------------------------------
--- 12) TABLE: collaborator_table
-------------------------------------------------------------------
-CREATE TABLE collaborator_table(
-    collaborator_id CHAR(49),
-    email VARCHAR(255) NOT NULL,
-    birthday DATE NOT NULL,
-    role VARCHAR(50) NOT NULL,
-    firstname VARCHAR(50) NOT NULL,
-    lastname VARCHAR(50) NOT NULL,
-    password CHAR(128) NOT NULL,
-    company_id VARCHAR(43) NOT NULL,
-    PRIMARY KEY(collaborator_id),
-    UNIQUE(email),
-    FOREIGN KEY(company_id) REFERENCES company_table(company_id)
-);
-
-------------------------------------------------------------------
 -- 13) TABLE: posts_table
 ------------------------------------------------------------------
 CREATE TABLE posts_table(
@@ -211,7 +211,7 @@ CREATE TABLE appointment_table(
     contractor_id VARCHAR(47),
     appointment_date DATETIME NOT NULL,
     took DATETIME NOT NULL,
-    note BYTE,
+    note INTEGER,
     appointment_bill VARCHAR(255),
     PRIMARY KEY(collaborator_id, contractor_id),
     FOREIGN KEY(collaborator_id) REFERENCES collaborator_table(collaborator_id),
@@ -263,7 +263,8 @@ CREATE TABLE give_table(
     amount INT NOT NULL,
     give_at DATETIME NOT NULL,
     bill VARCHAR(255) NOT NULL,
-    PRIMARY KEY(collaborator_table, ngo_id),
-    FOREIGN KEY(collaborator_table) REFERENCES collaborator_table(collaborator_id),
+    collaborator_id CHAR(49),
+    PRIMARY KEY(collaborator_id, ngo_id),
+    FOREIGN KEY(collaborator_id) REFERENCES collaborator_table(collaborator_id),
     FOREIGN KEY(ngo_id) REFERENCES ngo_table(ngo_id)
 );
