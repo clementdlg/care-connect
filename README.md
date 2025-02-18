@@ -69,3 +69,13 @@ curl <python-ip>:8000
 telnet <mariadb-ip> 3306
 ```
 - If you get a `Connection refused`, then you should check the port forwarding
+
+# TODO 
+## sql
+- table pour les contrats
+- société client -> représentant
+- status des devis
+- devis
+- table de type de certifications
+- table des communautés pour le forum
+- associations
