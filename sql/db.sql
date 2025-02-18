@@ -2,14 +2,14 @@
 -- 1) TABLE: subscription_plan_table
 ------------------------------------------------------------------
 CREATE TABLE subscription_plan_table(
-    subscription_plan_id BYTE,
+    subscription_plan_id INTEGER AUTO_INCREMENT,
     max_size SMALLINT NOT NULL,
     default_consultation SMALLINT NOT NULL,
     chatbot_access SMALLINT NOT NULL,
     activities VARCHAR(50) NOT NULL,
     contract_id VARCHAR(46),
-    PRIMARY KEY(subscription_plan_id)
-	FOREIGN KEY contract_id REFERENCES contracts_table(contract_id)
+    PRIMARY KEY(subscription_plan_id),
+	FOREIGN KEY (contract_id) REFERENCES contracts_table(contract_id)
 );
 
 ------------------------------------------------------------------
@@ -34,7 +34,7 @@ CREATE TABLE contracts_table(
     file VARCHAR(255) NOT NULL,
     company_id VARCHAR(43),
     PRIMARY KEY(contract_id),
-    UNIQUE(file)
+    UNIQUE(file),
 	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE estimates_table(
     status BOOLEAN NOT NULL,
     company_id VARCHAR(43),
     PRIMARY KEY(estimate_id),
-    UNIQUE(file)
+    UNIQUE(file),
 	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
@@ -61,7 +61,7 @@ CREATE TABLE bill_table(
     file VARCHAR(255) NOT NULL,
     company_id VARCHAR(43),
     PRIMARY KEY(bill_id),
-    UNIQUE(file)
+    UNIQUE(file),
 	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
