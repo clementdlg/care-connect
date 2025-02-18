@@ -7,7 +7,9 @@ CREATE TABLE subscription_plan_table(
     default_consultation SMALLINT NOT NULL,
     chatbot_access SMALLINT NOT NULL,
     activities VARCHAR(50) NOT NULL,
+    contract_id VARCHAR(46),
     PRIMARY KEY(subscription_plan_id)
+	FOREIGN KEY contract_id REFERENCES contracts_table(contract_id)
 );
 
 ------------------------------------------------------------------
@@ -24,14 +26,16 @@ CREATE TABLE administrator_table(
 );
 
 ------------------------------------------------------------------
--- 3) TABLE: contracts_table (ex-crontacts_table)
+-- 3) TABLE: contracts_table 
 ------------------------------------------------------------------
 CREATE TABLE contracts_table(
     contract_id VARCHAR(46),
     sign_at DATETIME NOT NULL,
     file VARCHAR(255) NOT NULL,
+    company_id VARCHAR(43),
     PRIMARY KEY(contract_id),
     UNIQUE(file)
+	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
 ------------------------------------------------------------------
@@ -42,8 +46,10 @@ CREATE TABLE estimates_table(
     made_at DATETIME NOT NULL,
     file VARCHAR(255) NOT NULL,
     status BOOLEAN NOT NULL,
+    company_id VARCHAR(43),
     PRIMARY KEY(estimate_id),
     UNIQUE(file)
+	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
 ------------------------------------------------------------------
@@ -53,8 +59,10 @@ CREATE TABLE bill_table(
     bill_id VARCHAR(41),
     payed_at DATETIME NOT NULL,
     file VARCHAR(255) NOT NULL,
+    company_id VARCHAR(43),
     PRIMARY KEY(bill_id),
     UNIQUE(file)
+	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
 ------------------------------------------------------------------
@@ -193,29 +201,6 @@ CREATE TABLE posts_table(
     PRIMARY KEY(post_id),
     FOREIGN KEY(collaborator_id) REFERENCES collaborator_table(collaborator_id),
     FOREIGN KEY(subject_id) REFERENCES subject_table(subject_id)
-);
-
-------------------------------------------------------------------
--- 14) TABLE: company_subscription_table
-------------------------------------------------------------------
-CREATE TABLE company_subscription_table(
-    -- Ici, on suppose que 'contract_id' est à la fois la PK et la FK vers contracts_table
-    contract_id VARCHAR(46),
-    bonus_consultation INT NOT NULL,
-    estimate_id VARCHAR(46) NOT NULL,
-    bill_id VARCHAR(41) NOT NULL,
-    subscription_plan_id BYTE NOT NULL,
-    company_id VARCHAR(43) NOT NULL,
-    PRIMARY KEY(contract_id),
-    UNIQUE(estimate_id),
-    UNIQUE(bill_id),
-    UNIQUE(subscription_plan_id),
-    UNIQUE(company_id),
-    FOREIGN KEY(contract_id) REFERENCES contracts_table(contract_id),
-    FOREIGN KEY(estimate_id) REFERENCES estimates_table(estimate_id),
-    FOREIGN KEY(bill_id) REFERENCES bill_table(bill_id),
-    FOREIGN KEY(subscription_plan_id) REFERENCES subscription_plan_table(subscription_plan_id),
-    FOREIGN KEY(company_id) REFERENCES company_table(company_id)
 );
 
 ------------------------------------------------------------------
