@@ -21,6 +21,8 @@ services:
     env_file: "db.env"
     networks:
       - pa-network
+    ports:
+      - 3306:3306
     # volumes:
     #   - type: bind
     #     source: "./sql"
