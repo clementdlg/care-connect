@@ -1,8 +1,8 @@
 CREATE DATABASE pa25;
 USE pa25;
-------------------------------------------------------------------
+-- ----------------------------------------------------------------
 -- 2) TABLE: administrator_table
-------------------------------------------------------------------
+-- ----------------------------------------------------------------
 CREATE TABLE administrator_table(
     administrator_id VARCHAR(50),
     email VARCHAR(255) NOT NULL,
@@ -13,9 +13,9 @@ CREATE TABLE administrator_table(
     UNIQUE(email)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 8) TABLE: company_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE company_table(
     company_id VARCHAR(43),
     name VARCHAR(255) NOT NULL,
@@ -39,9 +39,9 @@ CREATE TABLE company_table(
     FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 3) TABLE: contracts_table 
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE contracts_table(
     contract_id VARCHAR(46),
     sign_at DATETIME NOT NULL,
@@ -52,9 +52,9 @@ CREATE TABLE contracts_table(
 	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 1) TABLE: subscription_plan_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE subscription_plan_table(
     subscription_plan_id INTEGER AUTO_INCREMENT,
     max_size SMALLINT NOT NULL,
@@ -66,9 +66,9 @@ CREATE TABLE subscription_plan_table(
 	FOREIGN KEY (contract_id) REFERENCES contracts_table(contract_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 12) TABLE: collaborator_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE collaborator_table(
     collaborator_id CHAR(49),
     email VARCHAR(255) NOT NULL,
@@ -83,9 +83,9 @@ CREATE TABLE collaborator_table(
     FOREIGN KEY(company_id) REFERENCES company_table(company_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 4) TABLE: estimates_table (ex-estimates)
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE estimates_table(
     estimate_id VARCHAR(46),
     made_at DATETIME NOT NULL,
@@ -97,9 +97,9 @@ CREATE TABLE estimates_table(
 	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 5) TABLE: bill_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE bill_table(
     bill_id VARCHAR(41),
     payed_at DATETIME NOT NULL,
@@ -110,9 +110,9 @@ CREATE TABLE bill_table(
 	FOREIGN KEY (company_id) REFERENCES company_table(company_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 6) TABLE: categories_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE categories_table(
     category_id VARCHAR(47),
     title VARCHAR(255) NOT NULL,
@@ -120,9 +120,9 @@ CREATE TABLE categories_table(
     UNIQUE(title)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 7) TABLE: ngo_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE ngo_table(
     ngo_id VARCHAR(40),
     name VARCHAR(255) NOT NULL,
@@ -136,9 +136,9 @@ CREATE TABLE ngo_table(
     FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 9) TABLE: contractor_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE contractor_table(
     contractor_id VARCHAR(47),
     registration_number VARCHAR(50) NOT NULL,
@@ -160,9 +160,9 @@ CREATE TABLE contractor_table(
     FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 10) TABLE: event_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE event_table(
     event_id VARCHAR(42),
     created_at DATETIME NOT NULL,
@@ -177,9 +177,9 @@ CREATE TABLE event_table(
     FOREIGN KEY(administrator_id) REFERENCES administrator_table(administrator_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 11) TABLE: subject_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE subject_table(
     subject_id CHAR(43),
     subject_title CHAR(255) NOT NULL,
@@ -189,9 +189,9 @@ CREATE TABLE subject_table(
     FOREIGN KEY(category_id) REFERENCES categories_table(category_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 13) TABLE: posts_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE posts_table(
     post_id CHAR(42),
     post_title VARCHAR(255) NOT NULL,
@@ -205,9 +205,9 @@ CREATE TABLE posts_table(
     FOREIGN KEY(subject_id) REFERENCES subject_table(subject_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 15) TABLE: appointment_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE appointment_table(
     collaborator_id CHAR(49),
     contractor_id VARCHAR(47),
@@ -220,9 +220,9 @@ CREATE TABLE appointment_table(
     FOREIGN KEY(contractor_id) REFERENCES contractor_table(contractor_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 16) TABLE: book_event_table (ex-book_event)
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE book_event_table(
     collaborator_id CHAR(49),
     event_id VARCHAR(42),
@@ -232,9 +232,9 @@ CREATE TABLE book_event_table(
     FOREIGN KEY(event_id) REFERENCES event_table(event_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 17) TABLE: likes_table (ex-likes)
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE likes_table(
     collaborator_id CHAR(49),
     post_id CHAR(42),
@@ -244,9 +244,9 @@ CREATE TABLE likes_table(
     FOREIGN KEY(post_id) REFERENCES posts_table(post_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 18) TABLE: reports_table
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE reports_table(
     contractor_id VARCHAR(47),
     post_id CHAR(42),
@@ -256,9 +256,9 @@ CREATE TABLE reports_table(
     FOREIGN KEY(post_id) REFERENCES posts_table(post_id)
 );
 
-------------------------------------------------------------------
+-- --------------
 -- 19) TABLE: give_table (ex-give)
-------------------------------------------------------------------
+-- --------------
 CREATE TABLE give_table(
     contractor_id VARCHAR(47),
     ngo_id VARCHAR(40),

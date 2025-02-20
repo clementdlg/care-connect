@@ -1,4 +1,4 @@
-FROM mariadb:11.6-noble
+FROM mysql:9.2.0
 
 ARG INIT_DIR="/docker-entrypoint-initdb.d"
 ENV DB_NAME="pa25"
