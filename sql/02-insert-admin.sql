@@ -1,3 +1,4 @@
+use pa25;
 INSERT INTO administrator_table (administrator_id, email, lastname, firstname, password) VALUES 
 ("administrator-3a2f1b78-c45e-4e6b-a9a3-85c9f3d9f1d6", "alicebrown@businesscare.fr", "Brown", "Alice", "DF6B9FB15CFDBB7527BE5A8A6E39F39E572C8DDB943FBC79A943438E9D3D85EBFC2CCF9E0ECCD9346026C0B6876E0E01556FE56F135582C05FBDBB505D46755A");
 INSERT INTO administrator_table (administrator_id, email, lastname, firstname, password) VALUES 
