@@ -21,10 +21,10 @@ services:
     env_file: "db.env"
     networks:
       - pa-network
-    volumes:
-      - type: bind
-        source: "./sql"
-        target: "/sql"
+    # volumes:
+    #   - type: bind
+    #     source: "./sql"
+    #     target: "/sql"
 
 networks:
   pa-network:
