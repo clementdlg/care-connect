@@ -1,0 +1,165 @@
+/* Header */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header pleine largeur */
+.adminHeader {
+  background: #18d4c5;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Section gauche */
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerLogo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Texte */
+.logoText {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin-left: 10px;
+}
+
+/* Icônes */
+.icon {
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: #ffea00;
+}
+
+/* Container principal */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Conteneur du formulaire */
+.container {
+  width: 500px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centrer le conteneur */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Style de la carte contenant le formulaire */
+.login-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+/* Logo centré */
+.login-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+/* Style des champs de formulaire */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Lien de création de compte */
+.create-account {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.create-account a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+}
+
+/* Labels pour espacer les champs */
+.label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Formulaire vertical */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacement entre les champs */
+}
+
+/* Groupes de champs (label + input) */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Espacement entre le label et l'input */
+}
+
+/* Champs bien espacés */
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #f0f0f0; /* Fond similaire à ton exemple */
+}
+
+/* Bouton de connexion */
+.loginButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.loginButton:hover {
+  background-color: #357abd;
+}

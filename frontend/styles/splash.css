@@ -1,0 +1,14 @@
+/* Styles pour centrer l'image sur la page */
+.splash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+}
+
+.splash-logo {
+  max-width: 200px; /* Ajuste la taille de l'image */
+  height: auto;
+}

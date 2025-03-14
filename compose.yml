@@ -23,10 +23,19 @@ services:
       - pa-network
     ports:
       - 3306:3306
-    # volumes:
-    #   - type: bind
-    #     source: "./sql"
-    #     target: "/sql"
+
+  frontend:
+    container_name: nextjs-app
+    build:
+      context: "."
+      dockerfile: "./docker/next.dockerfile"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/app"
+      - "/app/.next"
+    networks:
+      - pa-network
 
 networks:
   pa-network:
