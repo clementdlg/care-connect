@@ -8,4 +8,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; // Assure-toi que l'export par défaut est bien là
+export default Footer;

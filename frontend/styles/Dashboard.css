@@ -6,15 +6,13 @@
   align-items: center;
 }
 
-/* Conteneur du logo et du texte */
 .left-section {
   display: flex;
   align-items: center;
-  gap: 5px; /* Réduit l'espace entre le logo et le texte */
-  height: 100%; /* Prend toute la hauteur du header */
+  gap: 5px;
+  height: 100%;
 }
 
-/* Logo */
 .header-logo {
   width: 100px;
   height: 100px;
@@ -23,7 +21,6 @@
   display: block;
 }
 
-/* Texte "CareConnect" */
 .logo-text {
   font-size: 28px;
   font-weight: bold;
@@ -31,7 +28,6 @@
   margin: 4px;
 }
 
-/* Center Section (Search Bar) */
 .center-section {
   flex-grow: 1;
   display: flex;
@@ -54,7 +50,6 @@
   box-shadow: 0px 0px 5px rgba(64, 169, 255, 0.5);
 }
 
-/* Right Section (Logout Icon) */
 .right-section {
   display: flex;
   align-items: center;
@@ -64,27 +59,24 @@
   font-size: 22px;
   color: white;
   cursor: pointer;
-  margin-left: auto; /* Push logout to the right */
+  margin-left: auto;
 }
 
 .logout-icon:hover {
   color: #ff4d4f;
 }
 
-/* Profile Icon */
 .profile-icon {
   font-size: 22px;
   color: white;
 }
 
-/* Icon styles */
 .icon {
   font-size: 20px;
   color: white;
   cursor: pointer;
 }
 
-/* Admin Content */
 .admin-content {
   padding: 40px;
   max-width: 1200px;
@@ -92,10 +84,9 @@
   flex-grow: 1;
 }
 
-/* Dashboard Image */
 .carousel-container {
   position: relative;
-  width: 600px; /* Ajuste la largeur selon ton besoin */
+  width: 600px;
   height: 300px;
   margin: auto;
   overflow: hidden;
@@ -132,14 +123,12 @@
   transform: scale(1.2);
 }
 
-/* Tabs */
 .ant-tabs-card {
   background: white;
   padding: 10px;
   border-radius: 10px;
 }
 
-/* Tables */
 .admin-table .ant-table-thead > tr > th {
   background: #001529;
   color: white;
@@ -150,17 +139,16 @@
   text-align: center;
 }
 
-/* Bouton Ajouter */
 .add-button {
-  display: block; /* Le rendre un élément de bloc */
-  margin: 20px auto; /* Centre le bouton horizontalement */
+  display: block;
+  margin: 20px auto;
   background: #1890ff;
   color: white;
   font-size: 16px;
   padding: 12px 20px;
   border-radius: 5px;
   text-align: center;
-  width: fit-content; /* Ajuste la largeur au contenu */
+  width: fit-content;
   height: auto;
 }
 
@@ -170,12 +158,11 @@
   transition: 0.3s ease-in-out;
 }
 
-/* Footer */
 .admin-footer {
   background: #18d4c5;
   color: white;
   text-align: center;
-  padding: 10px 0; /* Tu peux ajuster la valeur si besoin */
+  padding: 10px 0;
   font-size: 14px;
   position: fixed;
   bottom: 0;

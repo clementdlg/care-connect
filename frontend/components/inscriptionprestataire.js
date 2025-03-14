@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
 import { UserOutlined, LogoutOutlined } from "@ant-design/icons";
-import styles from "../styles/inscriptionprestataire.module.css"; // Import du CSS
-import CustomFooter from "./Footer"; // Import du Footer
+import styles from "../styles/inscriptionprestataire.module.css";
+import CustomFooter from "./Footer";
 
 const { Header, Content } = Layout;
 
@@ -33,7 +33,6 @@ const InscriptionPrestataire = () => {
   };
   const handleLogout = () => {
     console.log("Déconnexion...");
-    // Logique pour gérer la déconnexion (par exemple : suppression du token)
   };
 
   const handleSubmit = (e) => {
@@ -55,7 +54,6 @@ const InscriptionPrestataire = () => {
         </div>
       </Header>
 
-      {/* CONTENU CENTRAL */}
       <Content className={styles.content}>
         <div className={styles.container}>
           <h2 className={styles.title}>
@@ -63,7 +61,6 @@ const InscriptionPrestataire = () => {
           </h2>
 
           <form onSubmit={handleSubmit} className={styles.form}>
-            {/* Informations sur l'entreprise */}
             <section>
               <h3 className={styles.subtitle}>
                 1. Informations sur l’entreprise
@@ -136,7 +133,6 @@ const InscriptionPrestataire = () => {
               <input className={styles.input} type="file" name="photo" />
             </section>
 
-            {/* Domaine d'Expertise */}
             <section>
               <h3 className={styles.subtitle}>2. Domaine d’Expertise</h3>
               <label className={styles.label}>Type de prestation</label>
@@ -173,7 +169,6 @@ const InscriptionPrestataire = () => {
               />
             </section>
 
-            {/* Connexion et Sécurité */}
             <section>
               <h3 className={styles.subtitle}>3. Connexion et Sécurité</h3>
               <label className={styles.label}>Créer un mot de passe</label>
@@ -193,7 +188,6 @@ const InscriptionPrestataire = () => {
               />
             </section>
 
-            {/* Acceptation et validation */}
             <section>
               <h3 className={styles.subtitle}>4. Acceptation et validation</h3>
               <label className={styles.checkboxLabel}>
@@ -224,7 +218,6 @@ const InscriptionPrestataire = () => {
         </div>
       </Content>
 
-      {/* FOOTER */}
       <CustomFooter />
     </Layout>
   );

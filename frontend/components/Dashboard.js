@@ -20,7 +20,6 @@ const images = [
   "/yoga.webp",
 ];
 
-// Composant du carrousel
 const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -57,7 +56,6 @@ const ImageCarousel = () => {
   );
 };
 
-// Composant principal Dashboard
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("prestataire");
 
@@ -269,7 +267,7 @@ const Dashboard = () => {
         render: (text, record) => (
           <Button
             type="link"
-            icon={<EyeOutlined />} // Utilisation de l'icône "Eye" pour voir
+            icon={<EyeOutlined />}
             onClick={() => handleView(record)}
           />
         ),
@@ -469,10 +467,8 @@ const Dashboard = () => {
       </Header>
 
       <Content className="admin-content">
-        {/* Carrousel d'images */}
         <ImageCarousel />
 
-        {/* Tabs and Data Table */}
         <Tabs activeKey={activeTab} onChange={setActiveTab} type="card">
           {Object.keys(tabTitleMap).map((tab) => (
             <TabPane tab={tabTitleMap[tab]} key={tab}>

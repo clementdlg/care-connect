@@ -1,11 +1,9 @@
-/* Header */
 .layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Header pleine largeur */
 .adminHeader {
   background: #18d4c5;
   padding: 15px;
@@ -16,7 +14,6 @@
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Section gauche */
 .leftSection {
   display: flex;
   align-items: center;
@@ -30,7 +27,6 @@
   border-radius: 50%;
 }
 
-/* Texte */
 .logoText {
   font-size: 28px;
   font-weight: bold;
@@ -38,7 +34,6 @@
   margin-left: 10px;
 }
 
-/* Icônes */
 .icon {
   font-size: 22px;
   color: white;
@@ -49,7 +44,6 @@
   color: #ffea00;
 }
 
-/* Container principal */
 .content {
   flex: 1;
   display: flex;
@@ -58,7 +52,6 @@
   padding: 40px 20px;
 }
 
-/* Conteneur du formulaire */
 .container {
   width: 500px;
   background: #f9f9f9;
@@ -67,7 +60,6 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Titres */
 .title {
   color: #333;
   text-align: center;
@@ -84,10 +76,9 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espacement entre les sections */
+  gap: 15px;
 }
 
-/* Espacer les champs input */
 .input {
   width: 100%;
   padding: 10px;
@@ -105,7 +96,6 @@
   font-size: 16px;
 }
 
-/* Bouton de soumission */
 .button {
   margin-top: 20px;
   background-color: #ff6b6b;
@@ -123,7 +113,6 @@
   background-color: #e63946;
 }
 
-/* Styles pour les checkboxes */
 .checkboxLabel {
   display: flex;
   align-items: center;
@@ -132,7 +121,6 @@
   font-size: 14px;
 }
 
-/* Espacer les checkboxes */
 .checkboxGroup {
   display: flex;
   flex-direction: column;
@@ -146,7 +134,6 @@
   display: block;
 }
 
-/* Style des sections */
 .section {
   margin-bottom: 20px;
 }

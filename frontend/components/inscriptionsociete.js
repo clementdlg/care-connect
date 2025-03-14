@@ -38,7 +38,6 @@ const InscriptionSociete = () => {
 
   const handleLogout = () => {
     console.log("Déconnexion...");
-    // Logique pour gérer la déconnexion (par exemple : suppression du token)
   };
 
   const handleSubmit = (e) => {
@@ -48,7 +47,6 @@ const InscriptionSociete = () => {
 
   return (
     <Layout className={styles.layout}>
-      {/* HEADER - Largeur complète */}
       <Header className={styles.adminHeader}>
         <div className={styles.leftSection}>
           <img src="/logo_alone.png" alt="Logo" className={styles.headerLogo} />
@@ -63,7 +61,6 @@ const InscriptionSociete = () => {
         <div className={styles.container}>
           <h2 className={styles.title}>Formulaire d'inscription</h2>
           <form onSubmit={handleSubmit} className={styles.form}>
-            {/* Section 1 - Informations sur l’entreprise */}
             <section>
               <h3 className={styles.subtitle}>
                 1. Informations sur l’entreprise
@@ -154,7 +151,7 @@ const InscriptionSociete = () => {
                 ))}
               </div>
             </section>
-            {/* Section 2 - Informations du représentant légal */}
+
             <section>
               <h3 className={styles.subtitle}>
                 2. Informations du représentant légal
@@ -198,7 +195,6 @@ const InscriptionSociete = () => {
               />
             </section>
 
-            {/* Section 3 - Mode de paiement */}
             <section>
               <h3 className={styles.subtitle}>3. Mode de paiement</h3>
 
@@ -263,7 +259,6 @@ const InscriptionSociete = () => {
               )}
             </section>
 
-            {/* Section 5 - Connexion et Sécurité */}
             <section>
               <h3 className={styles.subtitle}>5. Connexion et Sécurité</h3>
 
@@ -286,7 +281,6 @@ const InscriptionSociete = () => {
               />
             </section>
 
-            {/* Section 6 - Acceptation et validation */}
             <section>
               <h3 className={styles.subtitle}>6. Acceptation et validation</h3>
 
@@ -311,8 +305,7 @@ const InscriptionSociete = () => {
               </label>
             </section>
 
-            {/* Bouton de soumission */}
-           <button type="submit" className={styles.button}>
+            <button type="submit" className={styles.button}>
               Créer un compte
             </button>
           </form>

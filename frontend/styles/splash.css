@@ -1,4 +1,3 @@
-/* Styles pour centrer l'image sur la page */
 .splash-container {
   display: flex;
   justify-content: center;
@@ -9,6 +8,6 @@
 }
 
 .splash-logo {
-  max-width: 200px; /* Ajuste la taille de l'image */
+  max-width: 200px;
   height: auto;
 }
