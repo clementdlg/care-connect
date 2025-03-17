@@ -1,0 +1,42 @@
+services:
+  web:
+    container_name: python-api
+    build:
+      context: .
+      dockerfile: "docker/py.dockerfile"
+    ports:
+      - 8000:8000
+    volumes:
+      - type: bind
+        source: "./sources"
+        target: "/app"
+    networks:
+      - pa-network
+
+  data:
+    container_name: "sql-db"
+    build:
+      context: .
+      dockerfile: "docker/db.dockerfile"
+    env_file: "db.env"
+    networks:
+      - pa-network
+    ports:
+      - 3306:3306
+
+  frontend:
+    container_name: nextjs-app
+    build:
+      context: "."
+      dockerfile: "./docker/next.dockerfile"
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/app"
+      - "/app/.next"
+    networks:
+      - pa-network
+
+networks:
+  pa-network:
+    driver: bridge
