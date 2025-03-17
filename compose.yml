@@ -1,28 +1,26 @@
 services:
-  web:
-    container_name: python-api
-    build:
-      context: .
-      dockerfile: "docker/py.dockerfile"
+  db:
+    image: mysql:latest
+    container_name: db
     ports:
-      - 8000:8000
+      - "3306:3306"
+    env_file: db.env
     volumes:
-      - type: bind
-        source: "./sources"
-        target: "/app"
-    networks:
-      - pa-network
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db_data:/var/lib/mysql
 
-  data:
-    container_name: "sql-db"
+  api:
     build:
       context: .
-      dockerfile: "docker/db.dockerfile"
-    env_file: "db.env"
-    networks:
-      - pa-network
+      dockerfile: api-dockerfile
+    container_name: api
+    depends_on:
+      - db
     ports:
-      - 3306:3306
+      - "8000:8000"
+    env_file: db.env
+    volumes:
+      - ./app:/app
 
   frontend:
     container_name: nextjs-app
