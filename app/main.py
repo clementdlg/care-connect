@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from routes.administrator_routes import router as administrator_router
 import uvicorn
 
-app = FastAPI()
+app = FastAPI(debug=True)
 
 @app.get("/")
 def read_root():

@@ -28,7 +28,10 @@ class AdministratorQuery(BaseQuery):
         """
         statement = select(Administrator)
         admins = self.session.exec(statement).all()
-        return [AdministratorBulkRead.from_orm(admin) for admin in admins]
+        return admins
+
+
+              
 
     def create(self, admin_data: AdministratorCreate) -> AdministratorRead:
         """

@@ -12,7 +12,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: api-dockerfile
+      dockerfile: "./docker/api.dockerfile"
     container_name: api
     depends_on:
       - db

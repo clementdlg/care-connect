@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS pa25;
+CREATE DATABASE pa25;
+USE pa25;
+
+
 CREATE TABLE users (
   user_id CHAR(36),
   firstname VARCHAR(50) NOT NULL,
@@ -372,7 +377,6 @@ VALUES
 INSERT INTO administrators (admin_id)
 VALUES
     ('11111111-1111-1111-1111-111111111111');
-
 -- ==================================================
 -- 3) TABLE : categories
 -- ==================================================
