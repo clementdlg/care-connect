@@ -29,9 +29,7 @@ services:
       dockerfile: "./docker/next.dockerfile"
     ports:
       - "3000:3000"
-    volumes:
-      - "./frontend:/app"
-      - "/app/.next"
+
     networks:
       - pa-network
 
